@@ -1,0 +1,21 @@
+{
+  "name": "React-Work-Examples",
+  "version": "1.0.0",
+  "author": "arunkumar.thampi <arunthampi2006@gmail.com>",
+  "scripts": {
+    "dev": "node server.js",
+    "build": "next build",
+    "start": "cross-env NODE_ENV=production node server.js"
+  },
+  "dependencies": {
+    "express": "^4.14.0",
+    "isomorphic-unfetch": "^3.0.0",
+    "next": "latest",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0"
+  },
+  "license": "ISC"
+}
