@@ -1,11 +1,12 @@
 import React from 'react'
-import Header from 'components/header_module/header'
+import Header from 'components/header-module/header'
+import { connect } from 'react-redux'
 
 class ErrorPage extends React.Component {
   static getInitialProps(router) {
     return {pathname: router.pathname}
   }
-  render (req) {
+  render () {
     return (
       <div>
         <Header/>
@@ -15,4 +16,4 @@ class ErrorPage extends React.Component {
   }
 }
 
-export default ErrorPage
+export default connect()(ErrorPage)

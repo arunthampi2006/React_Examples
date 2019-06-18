@@ -11,11 +11,17 @@ app.prepare().then(() => {
   server.get('/about', (req, res) => {
     return app.render(req, res, '/about', req.query)
   })
-  server.get('/error_page', (req, res) => {
+  server.get('/errorPage', (req, res) => {
     return app.render(req, res, '/error_page', req.query)
+  })
+  server.get('/formModule', (req, res) => {
+    return app.render(req, res, '/form-module', req.query)
   })
   server.get('/posts/:id', (req, res) => {
     return app.render(req, res, '/posts', { id: req.params.id })
+  })
+  server.get('/', (req, res) => {
+    return handle(req, res)
   })
   server.get('*', (req, res) => {
     return handle(req, res)
@@ -24,4 +30,8 @@ app.prepare().then(() => {
     if (err) throw err
     console.log(`> Ready on http://localhost:${port}`)
   })
+})
+.catch(ex => {
+  console.error(ex.stack)
+  process.exit(1)
 })

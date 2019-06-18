@@ -1,5 +1,6 @@
 import React from 'react'
-import Header from 'components/header_module/header'
+import Header from 'components/header-module/header'
+import { connect } from 'react-redux'
 
 const aboutPage = () => (
   <div>
@@ -8,4 +9,4 @@ const aboutPage = () => (
   </div>
 )
 
-export default aboutPage
+export default connect()(aboutPage)

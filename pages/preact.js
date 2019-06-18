@@ -1,5 +1,5 @@
 import React from 'react'
-import Header from 'components/header_module/header'
+import Header from 'components/header-module/header'
 import 'isomorphic-unfetch'
 
 export default class Preact extends React.Component {

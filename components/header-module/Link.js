@@ -11,14 +11,19 @@ const activeLink = ({router, children, ...props}) => {
   let pName = router.pathname
   let pathName = pName !== asPath ? asPath : pName
   let href
+  let chkPath
   if (typeof(props.href) !== 'object') {
     href =  props.href
+    chkPath = props.as && asPath === props.as
+    chkPath = chkPath ? chkPath : pathName === href
   } else {
     let link =  props.href
     href = link.pathname + '/' + link.query.id
+
+    chkPath = pathName === href
   }
 
-  if (pathName === href && props.activeClassName) {
+  if ( chkPath && props.activeClassName) {
     className = `${className !== null ? className : ''} ${props.activeClassName}`.trim()
   }
   delete props.activeClassName

@@ -1,5 +1,11 @@
 import React, {Component} from 'react'
-import Header from 'components/header_module/header'
+import Header from 'components/header-module/header'
+import { Col, Row } from 'react-bootstrap'
+import { connect } from 'react-redux'
+
+import P from 'components/nested-layouts/paragraph'
+import Post from 'components/nested-layouts/post'
+import Input from 'components/redux/handler/react-handler'
 
 class posts extends Component {
   static getInitialProps({ query: { id } }) {
@@ -10,11 +16,16 @@ class posts extends Component {
       <div>
         <Header/>
         <h1>My blog post #{this.props.postId}</h1>
-        <p>
-          Content would be available soon
-        </p>
+        <Post title='Test blog post'>
+          <Row>
+            <Col lg={8}>
+              <Input controlLabel='Post' title='post' name='post'/>
+            </Col>
+          </Row>
+          <P> Content would be available soon </P>
+        </Post>
       </div>
     )
   }
 }
-export default posts
+export default connect()(posts)
