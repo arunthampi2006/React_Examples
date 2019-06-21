@@ -1,5 +1,4 @@
 import React from 'react'
-import Header from 'components/header-module/header'
 import 'isomorphic-unfetch'
 
 export default class Preact extends React.Component {
@@ -12,7 +11,6 @@ export default class Preact extends React.Component {
   render () {
     return (
       <div>
-        <Header />
         <p>Preact page has {this.props.stars} ⭐️</p>
       </div>
     )

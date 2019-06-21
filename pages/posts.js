@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import Header from 'components/header-module/header'
 import { Col, Row } from 'react-bootstrap'
 import { connect } from 'react-redux'
 
@@ -14,7 +13,6 @@ class posts extends Component {
   render () {
     return (
       <div>
-        <Header/>
         <h1>My blog post #{this.props.postId}</h1>
         <Post title='Test blog post'>
           <Row>

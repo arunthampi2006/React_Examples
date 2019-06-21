@@ -1,6 +1,5 @@
 import Router from 'next/router'
 import Link from './Link'
-import head from './head'
 
 export default () => (
   <div>

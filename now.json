@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "alias": "https://serverless-static-files.now.sh",
+  "name": "nextjs",
+  "build": [{"src": "next.config.js", "use": "@now/next"}],
+  "routes": [
+    {
+      "src": "/_next/static/(?:[^/]+/pages|chunks|runtime)/.+",
+      "headers": { "cache-control": "immutable" }
+    },
+    {
+      "src": "^/(static/|favicon.ico|manifest.json|humans.txt|sitemap.xml|sitemap.xsl)$",
+      "headers": { "cache-control": "max-age=300 must-revalidate" }
+    },
+    {
+      "src": "css/(*.*)",
+      "headers": { "cache-control": "max-age=300 must-revalidate" }
+    }
+  ]
+}
