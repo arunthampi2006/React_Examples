@@ -1,8 +1,10 @@
 const express = require('express')
 const next = require('next')
 const path = require('path')
+const dotenv = require('dotenv')
+dotenv.config()
 
-const port = parseInt(process.env.Port, 10) || 3000
+const port = parseInt(process.env.PORT, 10) || 3000
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dir: '.', dev })
 const handle = app.getRequestHandler()
@@ -20,12 +22,17 @@ app.prepare().then(() => {
     return app.render(req, res, '/form-module', req.query)
   })
   server.get('/posts/:id', (req, res) => {
-    return app.render(req, res, '/posts', { id: req.params.id })
+    const actualPage = '/posts'
+    const queryParams = { id: req.params.id }
+    return app.render(req, res, actualPage, queryParams)
   })
-  server.get('/', (req, res) => {
-    return handle(req, res)
+  server.get('/blog', (req, res) => {
+    return app.render(req, res, '/blog-contents', req.query)
   })
   server.get('*', (req, res) => {
+    return handle(req, res)
+  })
+  server.get('/', (req, res) => {
     return handle(req, res)
   })
   server.listen(port, err => {

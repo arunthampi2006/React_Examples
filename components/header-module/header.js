@@ -1,8 +1,11 @@
 import Router from 'next/router'
-import Link from './Link'
+import Link from '../link/Link'
+import NxtHead from '../head/nxthead'
 
 export default () => (
-  <div>
+  <>
+  <NxtHead />
+  <header>
     <nav>
       <style jsx>{`
         .active:after {
@@ -46,7 +49,13 @@ export default () => (
             <a className='nav-link'>Form Module</a>
           </Link>
         </li>
+        <li>
+          <Link activeClassName='active' href='/blog-contents' as='/blog'>
+            <a className='nav-link'>Blog</a>
+          </Link>
+        </li>
       </ul>
     </nav>
-  </div>
+  </header>
+  </>
 )

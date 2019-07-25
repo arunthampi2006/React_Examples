@@ -6,25 +6,50 @@
   "scripts": {
     "dev": "node server.js",
     "build": "next build",
-    "start": "cross-env NODE_ENV=production node server.js"
+    "start": "cross-env NODE_ENV=production node server.js",
+    "build:rss": "node ./.next/serverless/posts/rss-feed.js",
+    "now-build": "next build && yarn build:rss"
   },
   "keywords": [],
   "dependencies": {
+    "@zeit/next-css": "^1.0.1",
+    "@zeit/next-mdx": "^1.2.0",
+    "@zeit/next-sass": "^1.0.1",
+    "@zeit/next-typescript": "^1.1.1",
+    "babel-plugin-macros": "^2.5.0",
+    "babel-plugin-preval": "^3.0.1",
+    "bootstrap": "^4.3.1",
+    "date-fns": "^1.30.1",
+    "dotenv": "^8.0.0",
+    "exenv": "^1.2.2",
     "express": "^4.14.0",
+    "human-date": "^1.4.0",
     "isomorphic-unfetch": "^3.0.0",
+    "lodash.range": "^3.2.0",
+    "mdx-prism": "^0.3.1",
+    "micro": "^9.3.3",
     "next": "latest",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
+    "next-page-transitions": "1.0.0-beta.2",
     "next-redux-wrapper": "^2.1.0",
+    "node-sass": "^4.9.2",
+    "nprogress": "^0.2.0",
+    "pagination": "^0.4.6",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
     "react-bootstrap": "^0.32.4",
+    "react-dom": "^16.8.6",
     "react-redux": "^6.0.1",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
-    "next-page-transitions": "1.0.0-beta.2",
-    "nprogress": "^0.2.0"
+    "regexr": "^1.6.0",
+    "style-loader": "^0.23.1"
   },
   "devDependencies": {
-    "cross-env": "^5.2.0"
+    "cross-env": "^5.2.0",
+    "sass-loader": "7.1.0",
+    "@svgr/webpack": "^4.2.0",
+    "prettier": "^1.16.4",
+    "rehype": "^8.0.0"
   },
   "license": "ISC"
 }

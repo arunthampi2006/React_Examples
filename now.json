@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "alias": "https://serverless-static-files.now.sh",
+  "alias": ["nextjs-blog-starter.now.sh", "https://serverless-static-files.now.sh"],
   "name": "nextjs",
   "build": [{"src": "next.config.js", "use": "@now/next"}],
   "routes": [
@@ -13,8 +13,10 @@
       "headers": { "cache-control": "max-age=300 must-revalidate" }
     },
     {
-      "src": "css/(*.*)",
+      "src": "/static/css/(*.*)",
       "headers": { "cache-control": "max-age=300 must-revalidate" }
-    }
+    },
+    { "src": "/feed.json", "dest": "/_next/static/feed.json" },
+    { "src": "/blog/(?<page>[^/]+)$", "dest": "/blog?page=$page" }
   ]
 }

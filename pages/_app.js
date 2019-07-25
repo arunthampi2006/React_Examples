@@ -10,13 +10,16 @@ import Router from 'next/router'
 import Header from 'components/header-module/header'
 import Footer from 'components/footer'
 import Loader from 'components/loader'
-import Head from './head'
+import GlobalStyles from './globalStyles'
+
+// import 'bootstrap/dist/css/bootstrap.css'
+// import NProgressStyle from 'nprogress/nprogress.css'
 
 const TIMEOUT=400
 const DELAY=450
 
 Router.events.on('routeChangeStart', url => {
-  console.log(NProgress, `----- Loading ${url}`)
+  console.log('NProgress--',NProgress, `----- Loading ${url}`)
   NProgress.start()
 })
 Router.events.on('routeChangeComplete', () => NProgress.done())
@@ -35,10 +38,10 @@ class ReactApp extends App {
   }
 
   render () {
+    // console.log('---this.props---', this.props)
     const { Component, pageProps, store } = this.props
     return (
       <Container>
-        <Head />
         <Header />
         <PageTransition
           timeout={TIMEOUT}
@@ -52,33 +55,9 @@ class ReactApp extends App {
           </Provider>
         </PageTransition>
         <Footer/>
-        <style jsx global>{`
-          .page-transition-enter {
-            opacity: 0;
-            transform: translate3d(0, 20px, 0);
-          }
-          .page-transition-enter-active {
-            opacity: 1;
-            transform: translate3d(0, 0, 0);
-            transition: opacity ${TIMEOUT}ms, transform ${TIMEOUT}ms;
-          }
-          .page-transition-exit {
-            opacity: 1;
-          }
-          .page-transition-exit-active {
-            opacity: 0;
-            transition: opacity ${TIMEOUT}ms;
-          }
-          .loading-indicator-appear,
-          .loading-indicator-enter {
-            opacity: 0;
-          }
-          .loading-indicator-appear-active,
-          .loading-indicator-enter-active {
-            opacity: 1;
-            transition: opacity ${TIMEOUT}ms;
-          }
-        `}</style>
+
+        <GlobalStyles/>
+
       </Container>
     )
   }

@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
+import { Button } from 'react-bootstrap'
+
 class About extends Component {
   static pageTransitionDelayEnter = true
 
@@ -27,9 +29,10 @@ class About extends Component {
 
   render () {
     if (!this.state.loaded) return null
-
+debugger
     return (
       <div className='container bg-success page'>
+      <Button variant="primary">Primary</Button>
         <h1>About us</h1>
         <p>
           Notice how a loading spinner showed up while my content was "loading"?
